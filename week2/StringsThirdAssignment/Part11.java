@@ -1,14 +1,13 @@
 package StringsThirdAssignment;
-import edu.duke.*;
-import java.io.File;
 
+import edu.duke.*;
 /**
- * Write a description of Part1 here.
+ * Write a description of Part11 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Part1 {
+public class Part11 {
     public int findStopCodon(String dna, int startIndex, String stop){
         int stopIndex= dna.indexOf(stop,startIndex+1);
         if  (stopIndex!= -1){
@@ -26,13 +25,13 @@ public class Part1 {
  
     
     public String findGene(String dna, int fromHere){
-        int startIndex= dna.indexOf("ATG", fromHere);
+        int startIndex= dna.indexOf("atg", fromHere);
         if (startIndex ==-1){
             return "";
         }
-        int taa=findStopCodon(dna,startIndex,"TAA");
-        int tga=findStopCodon(dna,startIndex,"TGA");
-        int tag=findStopCodon(dna,startIndex,"TAG");
+        int taa=findStopCodon(dna,startIndex,"taa");
+        int tga=findStopCodon(dna,startIndex,"tga");
+        int tag=findStopCodon(dna,startIndex,"tag");
         
         int stopIndex=Math.min(taa,Math.min(tga,tag));
         
@@ -76,17 +75,17 @@ public class Part1 {
     public float cgRatio(String dna){
               
         int count=0;
-        int cIndex= dna.indexOf("C");
-        int gIndex= dna.indexOf("G");
+        int cIndex= dna.indexOf("c");
+        int gIndex= dna.indexOf("g");
         while(cIndex!=-1 || gIndex!=-1){          
                       
            if    (cIndex!=-1){
                count=count+1;
-               cIndex=dna.indexOf("C",cIndex+1);
+               cIndex=dna.indexOf("c",cIndex+1);
             } 
            if    (gIndex!=-1){
                count=count+1;
-               gIndex=dna.indexOf("G",gIndex+1);
+               gIndex=dna.indexOf("g",gIndex+1);
             }  
            System.out.println(cIndex);
            System.out.println(gIndex);
@@ -113,12 +112,7 @@ public class Part1 {
         int count=0;
         //System.out.println(" STRINGS ");
         for (String s: sr.data()) {
-            System.out.println("!!!!!!!!!"); 
-            int currentLength = s.length();
-            System.out.println("length: " +currentLength );
-            if (currentLength > 60)
-            {
-               System.out.println("!!!!!!!!!"); 
+            if (s.length() > 60){
                System.out.println("the String"+ s); 
                count=count+1;
             }
@@ -153,16 +147,11 @@ public class Part1 {
     
     public void testProcessGenes(){
         FileResource fr = new FileResource("brca1line.fa");
-        String dna = fr.asString().toUpperCase();
+        String dna = fr.asString();
         StorageResource genes= getAllGenes(dna);
         
         processGenes(genes);
         System.out.println("genes number"+ genes.size());
     
     }
- }
-    
-
-
-
-
+}
