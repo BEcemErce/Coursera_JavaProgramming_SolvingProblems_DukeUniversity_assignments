@@ -20,4 +20,6 @@ comment7.target=void\ processGenes(edu.duke.StorageResource)
 comment7.text=PART3*************
 comment8.params=
 comment8.target=void\ testProcessGenes()
-numComments=9
+comment9.params=
+comment9.target=void\ GTC()
+numComments=10

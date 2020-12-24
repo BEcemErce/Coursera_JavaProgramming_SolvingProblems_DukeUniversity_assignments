@@ -146,7 +146,7 @@ public class Part11 {
       
     
     public void testProcessGenes(){
-        FileResource fr = new FileResource("brca1line.fa");
+        FileResource fr = new FileResource();
         String dna = fr.asString();
         StorageResource genes= getAllGenes(dna);
         

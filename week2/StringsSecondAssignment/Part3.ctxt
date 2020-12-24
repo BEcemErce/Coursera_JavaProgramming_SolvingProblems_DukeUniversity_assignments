@@ -11,4 +11,6 @@ comment4.params=dna
 comment4.target=int\ countGenes(java.lang.String)
 comment5.params=
 comment5.target=void\ testCountGenes()
-numComments=6
+comment6.params=
+comment6.target=void\ testProcessGenes()
+numComments=7

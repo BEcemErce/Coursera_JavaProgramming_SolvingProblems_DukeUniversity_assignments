@@ -1,6 +1,6 @@
 package StringsSecondAssignment;
 
-
+import edu.duke.*;
 /**
  * Write a description of Part3 here.
  * 
@@ -23,6 +23,7 @@ public class Part3 {
     }
     
     public String findGene(String dna, int fromHere){
+        dna=dna.toUpperCase();
         int startIndex= dna.indexOf("ATG", fromHere);
         if (startIndex ==-1){
             return "";
@@ -75,10 +76,18 @@ public class Part3 {
        
     }
      public void testCountGenes(){
-        String dna="xxxATGyyyxxxTAAvvATGxxxTAAvvvTGAccATGyxTAAvvvvTGAaaaATGwwww";
+        String dna="oneAtGMyGeneOneAAACCCGGYGGGGTAGGGCTGCCCATGendTAAnonCodingDNATAGTGAZZZTAAtwoATGMyGeneTwoCCCCCCatgCCCFalseStartTAATGATGendtwoTAGnonCodingDNATAACCCCCCthreeATGMyGeneThreeTAAATGcendTAAnonCodingDNAccTAAfalseCCCfourATGMyGeneFourCCendTAGnonCodingDNAfiveAtgMyGeneFIVECCCCCAAACCCendTGAnonCodingDNAsiCATGmyGeneSiCATCAAAendTAAnoncodingDNAsevenATGMyGeneSevenCCCCTheNeCtGeneIsShortTooEndtaAnoncodingDNAeightATGmyGeneightCCendtaAnoncodingDNACCCCWrongCCCtgaCtaaCtagCCCeightATgmyGeneNinecccgggCCcTAAccTAAnonCodingDNACCCCtenATGmyGeneTengTAACCHasFakeATGFAKEatgcendtaanonCodingDNACtagCtgaelevenATGmyGeneElevenCCTheLastGeneIsATGTAGendtgaATGTAGC";
         System.out.println(countGenes(dna));
         
     
         
+    }
+    public void testProcessGenes(){
+        FileResource fr = new FileResource();
+        String dna = fr.asString().toUpperCase();
+        System.out.println(countGenes(dna));
+        
+        
+    
     }
 }

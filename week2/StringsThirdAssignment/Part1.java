@@ -110,9 +110,9 @@ public class Part1 {
         
      /* ***************PART3************* */   
     public void processGenes(StorageResource sr){
-        int count=0;
+        //int count=0;
         //System.out.println(" STRINGS ");
-        for (String s: sr.data()) {
+        /* for (String s: sr.data()) {
             System.out.println("!!!!!!!!!"); 
             int currentLength = s.length();
             System.out.println("length: " +currentLength );
@@ -122,20 +122,25 @@ public class Part1 {
                System.out.println("the String"+ s); 
                count=count+1;
             }
-        }
+        }*/
        
-        System.out.println("THE NUMBER OF STRINGS (character >60 ) ="+ count);
+        //System.out.println("THE NUMBER OF STRINGS (character >60 ) ="+ count);
         
         System.out.println("STRINGS C-G Ratio >0.35");
         int countCG=0;
+        int count60=0;
         for (String s: sr.data()){
             if (cgRatio(s)>0.35){
-               System.out.println(s); 
+               
                countCG=countCG+1;
+            }
+             if (s.length() > 60)
+            {
+               count60=count60+1;
             }
         }
         System.out.println("THE NUMBER OF STRINGS (CG>0.35) ="+ countCG);
-        
+        System.out.println("THE NUMBER OF STRINGS (character >60 ) ="+ count60);
         String longestSt= "";
         for (String s: sr.data()){
             if (s.length()>longestSt.length()){
@@ -143,7 +148,7 @@ public class Part1 {
             }
         }
         System.out.println("THE LONGEST STRING= "+ longestSt);
-     
+        System.out.println("THE LONGEST STRING LENGTH= "+ longestSt.length());
         
     }   
         
@@ -152,7 +157,7 @@ public class Part1 {
       
     
     public void testProcessGenes(){
-        FileResource fr = new FileResource("brca1line.fa");
+        FileResource fr = new FileResource();
         String dna = fr.asString().toUpperCase();
         StorageResource genes= getAllGenes(dna);
         
@@ -160,7 +165,23 @@ public class Part1 {
         System.out.println("genes number"+ genes.size());
     
     }
+        public void GTC(){
+        FileResource fr = new FileResource();
+        String dna = fr.asString().toUpperCase();
+        int count=0;
+        int indexGTC=dna.indexOf("CTG");
+        while(true){
+            if (indexGTC==-1){
+            break;
+            }
+            count+=1;
+            dna=dna.substring(indexGTC+3,dna.length());
+            indexGTC=dna.indexOf("CTG");
+        }
+        
+        System.out.println(count);
  }
+}
     
 
 

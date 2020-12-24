@@ -9,7 +9,7 @@ import edu.duke.*;
 
 public class Part4 {
     public void mtd(){
-        URLResource ur = new URLResource("http://www.dukelearntoprogram.com/course2/data/manylinks.html");
+        URLResource ur = new URLResource("https://www.dukelearntoprogram.com//course2/data/manylinks.html");
         for (String s : ur.words()) {
             s=s.toLowerCase();
             System.out.println(s);
