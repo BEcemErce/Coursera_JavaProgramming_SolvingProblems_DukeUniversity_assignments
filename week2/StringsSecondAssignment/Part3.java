@@ -9,13 +9,13 @@ import edu.duke.*;
  */
 public class Part3 {
     public int findStopCodon(String dna, int startIndex, String stop){
-        int stopIndex= dna.indexOf(stop,startIndex+1);
-        if  (stopIndex!= -1){
+        int stopIndex= dna.indexOf(stop,startIndex+3);
+        while (stopIndex!= -1){
             if ((stopIndex- startIndex)%3==0){
                 return stopIndex;
             }
             else{
-                return dna.length();
+                stopIndex= dna.indexOf(stop,stopIndex+1);
             }
         }          
         return dna.length();
@@ -42,17 +42,20 @@ public class Part3 {
     } 
     
     public void findAllGenes(String dna){
-        
+        dna=dna.toUpperCase();
         int startIndex = 0;
         
         while (true){
             String gene= findGene(dna,startIndex);
-            if (gene.isEmpty()){
+            if (gene.length()==0){
                 break;
             }
             
             System.out.println(gene);
+            System.out.println(dna.indexOf(gene));
+             System.out.println(dna.indexOf(gene.length()));
             startIndex= dna.indexOf(gene,startIndex)+gene.length();
+            System.out.println(startIndex);
                       
         }
         
@@ -62,6 +65,7 @@ public class Part3 {
     public int countGenes(String dna){
         int startIndex = 0;
         int count=0;
+        dna=dna.toUpperCase();
         while (true){
             String gene= findGene(dna,startIndex);
             if (gene.isEmpty()){
@@ -82,12 +86,5 @@ public class Part3 {
     
         
     }
-    public void testProcessGenes(){
-        FileResource fr = new FileResource();
-        String dna = fr.asString().toUpperCase();
-        System.out.println(countGenes(dna));
-        
-        
     
-    }
 }
